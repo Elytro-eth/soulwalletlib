@@ -1,5 +1,4 @@
 import { Result } from '@soulwallet/result';
-import { ethers } from 'ethers';
 
 export interface SignData {
     address: string;
