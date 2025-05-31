@@ -20,7 +20,7 @@ async function main() {
     await new CryptoTest().run();
     await new Decode().run();
 
-    const soulwalletcontractDir = resolve(__baseDir, 'soul-wallet-contract');
+    const soulwalletcontractDir = resolve(__baseDir, 'Elytro-wallet-contract');
     const bundlerDir = resolve(__baseDir, 'bundler');
     const RPC = 'http://127.0.0.1:8545';
     const BUNDLER = 'http://127.0.0.1:3000/rpc';
@@ -80,7 +80,7 @@ async function main() {
         const envFilePath = join(soulwalletcontractDir, '.env');
         // check file .env 
         if (!existsSync(envFilePath)) {
-            throw new Error('Please create .env file in soul-wallet-contract dir, format: \n' + `DEPLOYER_PRIVATE_KEY=
+            throw new Error('Please create .env file in Elytro-wallet-contract dir, format: \n' + `DEPLOYER_PRIVATE_KEY=
             PROXY_ADMIN_PRIVATE_KEY=
             MANAGER_ADDRESS=
             L1_KEYSTORE_ADDRESS=

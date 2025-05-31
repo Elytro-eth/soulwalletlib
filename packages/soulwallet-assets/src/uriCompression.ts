@@ -10,6 +10,8 @@ export class UriCompression {
         uri = 'cgk:' + uri.substring(42);
       } else if (uri.indexOf('https://raw.githubusercontent.com/') === 0) {
         uri = 'gh:' + uri.substring(34);
+      } else if (uri.indexOf('https://coin-images.coingecko.com/coins/images/') === 0) {
+        uri = 'ccc:' + uri.substring(47);
       }
       return uri;
     } else {
@@ -23,6 +25,8 @@ export class UriCompression {
         compressedUri = 'https://assets.coingecko.com/coins/images/' + compressedUri.substring(4);
       } else if (compressedUri.indexOf('gh:') === 0) {
         compressedUri = 'https://raw.githubusercontent.com/' + compressedUri.substring(3);
+      } else if (compressedUri.indexOf('ccc:') === 0) {
+        compressedUri = 'https://coin-images.coingecko.com/coins/images/' + compressedUri.substring(3);
       }
       return compressedUri;
     } else {

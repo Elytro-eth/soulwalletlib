@@ -1,9 +1,10 @@
 <h1 align="center">
    <b>
-        SoulWallet Lib
+        SoulWallet Lib [Deprecated]
     </b>
   <img alt="CI" src="https://github.com/SoulWallet/soulwalletlib/actions/workflows/UnitTest.yml/badge.svg?branch=develop"/>
 </h1>
+
 
 <p align="center">
 Library of the soulwallet contract

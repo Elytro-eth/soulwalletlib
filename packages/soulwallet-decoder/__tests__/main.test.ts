@@ -6,7 +6,7 @@ import {
     Method,
     Ok, Err, Result
 } from '..';
-import { ABI_SoulWallet } from "@soulwallet/abi";
+import { ABI_Elytro } from "@soulwallet/abi";
 import { describe, expect, test } from '@jest/globals';
 import { ethers } from 'ethers';
 
@@ -14,7 +14,7 @@ describe('Decoder', () => {
     test('Decoder-UserOp', async () => {
         let callData = '0x';
 
-        const abi = new ethers.Interface(ABI_SoulWallet);
+        const abi = new ethers.Interface(ABI_Elytro);
 
         let to: string[] = [
             '0xccaE58775FcBc01E0bB965Cc153363CD93e2d0f4',

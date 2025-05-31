@@ -215,6 +215,19 @@ export default [
   },
   {
     "type": "event",
+    "name": "ElytroCreation",
+    "inputs": [
+      {
+        "name": "proxy",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
     "name": "OwnershipTransferred",
     "inputs": [
       {
@@ -225,19 +238,6 @@ export default [
       },
       {
         "name": "newOwner",
-        "type": "address",
-        "indexed": true,
-        "internalType": "address"
-      }
-    ],
-    "anonymous": false
-  },
-  {
-    "type": "event",
-    "name": "SoulWalletCreation",
-    "inputs": [
-      {
-        "name": "proxy",
         "type": "address",
         "indexed": true,
         "internalType": "address"

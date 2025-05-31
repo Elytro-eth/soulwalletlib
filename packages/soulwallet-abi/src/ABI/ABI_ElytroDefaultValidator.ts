@@ -149,10 +149,5 @@ export default [
     "type": "error",
     "name": "INVALID_SIGNTYPE",
     "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "InvalidSignature",
-    "inputs": []
   }
 ];

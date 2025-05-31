@@ -14,7 +14,7 @@
     "preinstall": "npx only-allow pnpm",
     "build": "pnpm -r run build",
     "rebuild": "rm -rf ./packages/*/lib.*;pnpm run build",
-    "preTest": "cd soul-wallet-contract/ && chmod +x .env && npm install && npm run build && cd ../bundler/ && yarn && yarn preprocess",
+    "preTest": "cd Elytro-wallet-contract/ && chmod +x .env && npm install && npm run build && cd ../bundler/ && yarn && yarn preprocess",
     "internalTest": "pnpm -r run internalTest --filter 'internal-test'",
     "test": "pnpm -r run test",
     "generateABI": "pnpm --filter '@soulwallet/abi' -r run generateABI",
