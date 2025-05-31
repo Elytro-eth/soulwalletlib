@@ -13,16 +13,6 @@ export default [
   },
   {
     "type": "error",
-    "name": "ALERADY_INITIALIZED",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "CALLER_MUST_BE_ENTRYPOINT",
-    "inputs": []
-  },
-  {
-    "type": "error",
     "name": "CALLER_MUST_BE_MODULE",
     "inputs": []
   },
@@ -68,16 +58,6 @@ export default [
   },
   {
     "type": "error",
-    "name": "INVALID_GUARD_HOOK_DATA",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "INVALID_KEY",
-    "inputs": []
-  },
-  {
-    "type": "error",
     "name": "INVALID_LOGIC_ADDRESS",
     "inputs": []
   },
@@ -103,17 +83,7 @@ export default [
   },
   {
     "type": "error",
-    "name": "MODULE_ADDRESS_EMPTY",
-    "inputs": []
-  },
-  {
-    "type": "error",
     "name": "MODULE_EXECUTE_FROM_MODULE_RECURSIVE",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "MODULE_NOT_SUPPORT_INTERFACE",
     "inputs": []
   },
   {
@@ -123,22 +93,7 @@ export default [
   },
   {
     "type": "error",
-    "name": "MODULE_SELECTOR_UNAUTHORIZED",
-    "inputs": []
-  },
-  {
-    "type": "error",
     "name": "NOT_IMPLEMENTED",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "NOT_INITIALIZED",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "NO_OWNER",
     "inputs": []
   },
   {
@@ -159,16 +114,6 @@ export default [
   {
     "type": "error",
     "name": "UNAUTHORIZED",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "UNSUPPORTED_SIGNTYPE",
-    "inputs": []
-  },
-  {
-    "type": "error",
-    "name": "UNTRUSTED_KEYSTORE_LOGIC",
     "inputs": []
   },
   {

@@ -5,17 +5,7 @@ export default [
     "type": "constructor",
     "inputs": [
       {
-        "name": "_owner",
-        "type": "address",
-        "internalType": "address"
-      },
-      {
-        "name": "_usdcAddr",
-        "type": "address",
-        "internalType": "address"
-      },
-      {
-        "name": "_aaveUsdcPoolAddr",
+        "name": "initialOwner",
         "type": "address",
         "internalType": "address"
       }
@@ -24,71 +14,102 @@ export default [
   },
   {
     "type": "function",
-    "name": "addBot",
+    "name": "addVersion",
     "inputs": [
       {
-        "name": "bot",
+        "name": "moduleAddress",
         "type": "address",
         "internalType": "address"
-      }
-    ],
-    "outputs": [],
-    "stateMutability": "nonpayable"
-  },
-  {
-    "type": "function",
-    "name": "bots",
-    "inputs": [
+      },
       {
-        "name": "",
-        "type": "address",
-        "internalType": "address"
+        "name": "infoUrl",
+        "type": "string",
+        "internalType": "string"
       }
     ],
     "outputs": [
       {
+        "name": "versionIndex",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "getLatestModuleAddress",
+    "inputs": [],
+    "outputs": [
+      {
         "name": "",
-        "type": "bool",
-        "internalType": "bool"
+        "type": "address",
+        "internalType": "address"
       }
     ],
     "stateMutability": "view"
   },
   {
     "type": "function",
-    "name": "depositUsdcToAave",
-    "inputs": [
+    "name": "getVersionCount",
+    "inputs": [],
+    "outputs": [
       {
-        "name": "_user",
-        "type": "address",
-        "internalType": "address"
-      },
-      {
-        "name": "amount",
+        "name": "",
         "type": "uint256",
         "internalType": "uint256"
       }
     ],
-    "outputs": [],
-    "stateMutability": "nonpayable"
+    "stateMutability": "view"
   },
   {
     "type": "function",
-    "name": "depositUsdcToAaveBatch",
+    "name": "getVersionInfo",
     "inputs": [
       {
-        "name": "_users",
-        "type": "address[]",
-        "internalType": "address[]"
-      },
-      {
-        "name": "amounts",
-        "type": "uint256[]",
-        "internalType": "uint256[]"
+        "name": "versionIndex",
+        "type": "uint256",
+        "internalType": "uint256"
       }
     ],
-    "outputs": [],
-    "stateMutability": "nonpayable"
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple",
+        "internalType": "struct IUpgradeModuleRegistry.VersionData",
+        "components": [
+          {
+            "name": "timestamp",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "moduleAddress",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "infoUrl",
+            "type": "string",
+            "internalType": "string"
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "latestVersion",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
   },
   {
     "type": "function",
@@ -102,19 +123,6 @@ export default [
       }
     ],
     "stateMutability": "view"
-  },
-  {
-    "type": "function",
-    "name": "removeBot",
-    "inputs": [
-      {
-        "name": "bot",
-        "type": "address",
-        "internalType": "address"
-      }
-    ],
-    "outputs": [],
-    "stateMutability": "nonpayable"
   },
   {
     "type": "function",
@@ -138,32 +146,6 @@ export default [
   },
   {
     "type": "event",
-    "name": "BotAdded",
-    "inputs": [
-      {
-        "name": "bot",
-        "type": "address",
-        "indexed": false,
-        "internalType": "address"
-      }
-    ],
-    "anonymous": false
-  },
-  {
-    "type": "event",
-    "name": "BotRemoved",
-    "inputs": [
-      {
-        "name": "bot",
-        "type": "address",
-        "indexed": false,
-        "internalType": "address"
-      }
-    ],
-    "anonymous": false
-  },
-  {
-    "type": "event",
     "name": "OwnershipTransferred",
     "inputs": [
       {
@@ -183,19 +165,19 @@ export default [
   },
   {
     "type": "event",
-    "name": "UsdcDepositedToAave",
+    "name": "VersionAdded",
     "inputs": [
       {
-        "name": "user",
-        "type": "address",
-        "indexed": false,
-        "internalType": "address"
+        "name": "versionIndex",
+        "type": "uint256",
+        "indexed": true,
+        "internalType": "uint256"
       },
       {
-        "name": "amount",
-        "type": "uint256",
-        "indexed": false,
-        "internalType": "uint256"
+        "name": "moduleAddress",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
       }
     ],
     "anonymous": false
@@ -217,17 +199,6 @@ export default [
     "inputs": [
       {
         "name": "account",
-        "type": "address",
-        "internalType": "address"
-      }
-    ]
-  },
-  {
-    "type": "error",
-    "name": "SafeERC20FailedOperation",
-    "inputs": [
-      {
-        "name": "token",
         "type": "address",
         "internalType": "address"
       }

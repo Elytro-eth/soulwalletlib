@@ -571,6 +571,44 @@ export default [
     "anonymous": false
   },
   {
+    "type": "event",
+    "name": "SocialRecoveryDeInitialized",
+    "inputs": [
+      {
+        "name": "wallet",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "SocialRecoveryInitialized",
+    "inputs": [
+      {
+        "name": "wallet",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "guardianHash",
+        "type": "bytes32",
+        "indexed": false,
+        "internalType": "bytes32"
+      },
+      {
+        "name": "delayPeriod",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      }
+    ],
+    "anonymous": false
+  },
+  {
     "type": "error",
     "name": "ECDSAInvalidSignature",
     "inputs": []
@@ -600,6 +638,16 @@ export default [
   {
     "type": "error",
     "name": "GUARDIAN_SIGNATURE_INVALID",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "GUARDIAN_SIG_LENGTH_INVALID",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "GUARDIAN_THRESHOLD_INVALID",
     "inputs": []
   },
   {

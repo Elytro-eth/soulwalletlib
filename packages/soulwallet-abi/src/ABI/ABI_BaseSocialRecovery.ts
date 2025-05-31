@@ -521,6 +521,16 @@ export default [
   },
   {
     "type": "error",
+    "name": "GUARDIAN_SIG_LENGTH_INVALID",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "GUARDIAN_THRESHOLD_INVALID",
+    "inputs": []
+  },
+  {
+    "type": "error",
     "name": "HASH_ALREADY_APPROVED",
     "inputs": []
   },

@@ -19,13 +19,13 @@ export default [
   },
   {
     "type": "function",
-    "name": "soulWalletLogic",
+    "name": "elytroLogic",
     "inputs": [],
     "outputs": [
       {
         "name": "",
         "type": "address",
-        "internalType": "contract SoulWallet"
+        "internalType": "contract Elytro"
       }
     ],
     "stateMutability": "view"

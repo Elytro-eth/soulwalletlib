@@ -10,6 +10,11 @@ export default [
         "internalType": "address"
       },
       {
+        "name": "defaultValidator",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
         "name": "owners",
         "type": "bytes32[]",
         "internalType": "bytes32[]"
@@ -34,6 +39,45 @@ export default [
   },
   {
     "type": "function",
+    "name": "elytro",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "contract IElytro"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "elytroFactory",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "contract ElytroFactory"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "elytroLogicInstence",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "contract ElytroLogicInstence"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
     "name": "entryPoint",
     "inputs": [],
     "outputs": [
@@ -41,58 +85,6 @@ export default [
         "name": "",
         "type": "address",
         "internalType": "contract EntryPoint"
-      }
-    ],
-    "stateMutability": "view"
-  },
-  {
-    "type": "function",
-    "name": "soulWallet",
-    "inputs": [],
-    "outputs": [
-      {
-        "name": "",
-        "type": "address",
-        "internalType": "contract ISoulWallet"
-      }
-    ],
-    "stateMutability": "view"
-  },
-  {
-    "type": "function",
-    "name": "soulWalletDefaultValidator",
-    "inputs": [],
-    "outputs": [
-      {
-        "name": "",
-        "type": "address",
-        "internalType": "contract SoulWalletDefaultValidator"
-      }
-    ],
-    "stateMutability": "view"
-  },
-  {
-    "type": "function",
-    "name": "soulWalletFactory",
-    "inputs": [],
-    "outputs": [
-      {
-        "name": "",
-        "type": "address",
-        "internalType": "contract SoulWalletFactory"
-      }
-    ],
-    "stateMutability": "view"
-  },
-  {
-    "type": "function",
-    "name": "soulWalletLogicInstence",
-    "inputs": [],
-    "outputs": [
-      {
-        "name": "",
-        "type": "address",
-        "internalType": "contract SoulWalletLogicInstence"
       }
     ],
     "stateMutability": "view"
