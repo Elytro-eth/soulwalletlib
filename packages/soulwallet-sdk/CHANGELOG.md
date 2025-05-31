@@ -1,5 +1,12 @@
 # @soulwallet/sdk
 
+## 0.3.14
+
+### Patch Changes
+
+- Updated dependencies [d1428f5]
+  - @soulwallet/abi@0.4.0
+
 ## 0.3.13
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # @soulwallet/decoder
 
+## 0.4.0
+
+### Minor Changes
+
+- d1428f5: 1. Updated the contract ABI. 2. The current project plan is deprecated. 3. Updated the assets package.
+
+### Patch Changes
+
+- Updated dependencies [d1428f5]
+  - @soulwallet/abi@0.4.0
+  - @soulwallet/assets@0.3.5
+
 ## 0.3.5
 
 ### Patch Changes
