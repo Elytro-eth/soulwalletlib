@@ -2,3 +2,6 @@
 [submodule "bundler"]
 	path = bundler
 	url = https://github.com/eth-infinitism/bundler
+[submodule "Elytro-wallet-contract"]
+	path = Elytro-wallet-contract
+	url = https://github.com/Elytro-eth/Elytro-wallet-contract.git
