@@ -1,5 +1,12 @@
 # @soulwallet/zkemail
 
+## 0.0.7
+
+### Patch Changes
+
+- Updated dependencies [d1428f5]
+  - @soulwallet/abi@0.4.0
+
 ## 0.0.6
 
 ### Patch Changes
