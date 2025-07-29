@@ -3,7 +3,7 @@ import { GuardHookInputData, ISoulWallet, InitialKey, SignkeyType, Transaction }
 import { UserOperation } from "./interface/UserOperation.js";
 import { TypeGuard } from "./tools/typeGuard.js";
 import { MemCache } from "./tools/memCache.js";
-import { ABI_SoulWalletFactory, ABI_SoulWallet, ABI_EntryPoint } from "@soulwallet/abi";
+import { ABI_ElytroFactory, ABI_Elytro, ABI_EntryPoint } from "@soulwallet/abi";
 import { HookInputData, Signature } from "./tools/signature.js";
 // import { Hex } from "./tools/hex.js";
 // import { GasOverhead } from "./tools/gasOverhead.js";
@@ -115,9 +115,9 @@ export class SoulWallet implements ISoulWallet {
         // read from cache
         let _onChainConfig = MemCache.getInstance().get<onChainConfig | undefined>(key, undefined);
         if (!_onChainConfig) {
-            const _soulWalletFactory = new ethers.Contract(this.soulWalletFactoryAddress, ABI_SoulWalletFactory, this.provider);
+            const _soulWalletFactory = new ethers.Contract(this.soulWalletFactoryAddress, ABI_ElytroFactory, this.provider);
             const soulWalletLogic: string = await _soulWalletFactory.getFunction("_WALLETIMPL").staticCall();
-            const _soulWallet = new ethers.Contract(soulWalletLogic, ABI_SoulWallet, this.provider);
+            const _soulWallet = new ethers.Contract(soulWalletLogic, ABI_Elytro, this.provider);
             const entryPoint: string = await _soulWallet.getFunction("entryPoint").staticCall();
 
             const _bundlerChainIdBigint = (await this.bundler.getNetwork()).chainId;
@@ -233,7 +233,7 @@ export class SoulWallet implements ISoulWallet {
             modules.push(socialRecoveryModuleAndData);
         }
 
-        const interfaceSoulWallet = new ethers.Interface(ABI_SoulWallet);
+        const interfaceSoulWallet = new ethers.Interface(ABI_Elytro);
         const initializeData = interfaceSoulWallet.encodeFunctionData("initialize", [
             SocialRecovery.initialKeysToAddress(initialKeys),
             defalutCallbackHandlerAddress === undefined ? ethers.ZeroAddress : defalutCallbackHandlerAddress,
@@ -372,7 +372,7 @@ export class SoulWallet implements ISoulWallet {
         }
 
         const factory = this.soulWalletFactoryAddress;
-        const factoryData = `${new ethers.Interface(ABI_SoulWalletFactory)
+        const factoryData = `${new ethers.Interface(ABI_ElytroFactory)
             .encodeFunctionData("createWallet", [_initializeData.OK,
             WalletFactory.calcWalletAddressSalt(index, _onChainConfig.OK.chainId)
             ])
@@ -440,7 +440,7 @@ export class SoulWallet implements ISoulWallet {
 
     private async guardHookList(walletAddress: string): Promise<Result<string[], Error>> {
         try {
-            const _soulWallet = new ethers.Contract(walletAddress, ABI_SoulWallet, this.provider);
+            const _soulWallet = new ethers.Contract(walletAddress, ABI_Elytro, this.provider);
             // function listPlugin(uint8 hookType) external view returns (address[] memory plugins);
             const _guardHookList = await _soulWallet.listPlugin(1 /* uint8 private constant _GUARD_HOOK = 1 << 0; */);
             return new Ok(_guardHookList);
@@ -823,7 +823,7 @@ export class SoulWallet implements ISoulWallet {
                 function executeBatch(address[] calldata dest, bytes[] calldata func) external;
                 function executeBatch(address[] calldata dest, uint256[] calldata value, bytes[] calldata func) external;
             */
-            const abi = new ethers.Interface(ABI_SoulWallet);
+            const abi = new ethers.Interface(ABI_Elytro);
 
             const to: string[] = [];
             const value: string[] = [];
@@ -917,8 +917,8 @@ export class SoulWallet implements ISoulWallet {
             return new Err(_onChainConfig.ERR);
         }
         /* 
-            keccak256("SoulWalletMessage(bytes32 message)");
-            bytes32 private constant SOUL_WALLET_MSG_TYPEHASH =0x04e6b5b1de6ba008d582849d4956d004d09a345fc11e7ba894975b5b56a4be66;
+            keccak256("ElytroMessage(bytes32 message)");
+            bytes32 private constant SOUL_WALLET_MSG_TYPEHASH =0x2d652e7a5ba03a42cab5874652cb801029a67205cd9567e07bf5768edde9f002;
             
             keccak256("EIP712Domain(uint256 chainId,address verifyingContract)");
             bytes32 private constant DOMAIN_SEPARATOR_TYPEHASH =0x47e79534a245952e8b16893a336b85a3d9ea9fa8c573f3d803afb92a79469218;
@@ -928,7 +928,7 @@ export class SoulWallet implements ISoulWallet {
             verifyingContract: ethers.getAddress(walletAddr)
         };
         const types: Record<string, Array<TypedDataField>> = {
-            SoulWalletMessage: [
+            ElytroMessage: [
                 { name: "message", type: "bytes32" }
             ]
         };
