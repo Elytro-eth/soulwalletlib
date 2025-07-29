@@ -1,5 +1,16 @@
 # @soulwallet/sdk
 
+## 0.4.0
+
+### Minor Changes
+
+- 7836109: Removed several unused ABI files (EIP1271Wallet, ERC20Paymaster, HelloWorld, IOracle, TestOracle, TokenERC20) and added ABI_IEntryPoint_v08. Updated ABI_DefaultCallbackHandler, ABI_ElytroDefaultValidator, ABI_ElytroFactory, and ABI_ElytroInstence with new functions and events. Adjusted tests to remove references to deleted ABIs. Updated Elytro-wallet-contract submodule. These changes align the ABI definitions and tests with the latest contract interfaces and codebase requirements.
+
+### Patch Changes
+
+- Updated dependencies [7836109]
+  - @soulwallet/abi@0.5.0
+
 ## 0.3.14
 
 ### Patch Changes
