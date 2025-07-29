@@ -100,7 +100,7 @@ describe('Decoder', () => {
                 executions.push(execution);
             }
 
-            callData = abi.encodeFunctionData("executeBatch((address,uint256,bytes)[])", [executions]);
+            callData = abi.encodeFunctionData("executeBatch", [executions]);
         } else {
             callData = abi.encodeFunctionData("execute", [to[0], value[0], data[0]]);
         }

@@ -103,7 +103,7 @@ async function generatEthereumListBytes4() {
             // read
             const text = fs.readFileSync(file, { encoding: 'utf-8' });
             const _data = new function4bytes(text);
-            eachBytes4Arr += `b.set('0x${_data.bytes4}',{text:'${_data.text}',bytes4:'0x${_data.bytes4}'});\n`;
+            eachBytes4Arr += `b.set('${_data.bytes4}',{text:'${_data.text}',bytes4:'${_data.bytes4}'});\n`;
         }
     }
 
