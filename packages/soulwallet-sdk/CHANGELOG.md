@@ -1,5 +1,11 @@
 # @soulwallet/sdk
 
+## 0.4.1
+
+### Patch Changes
+
+- b5e3328: Refactored getUserOpHash to compute the hash using an EIP-712 domain separator for improved standards compliance. Updated test values to match the new hashing logic and adjusted packUserOp encoding to include a type hash.
+
 ## 0.4.0
 
 ### Minor Changes
