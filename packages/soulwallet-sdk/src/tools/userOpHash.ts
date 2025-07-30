@@ -14,17 +14,17 @@ export function packUserOp(packedOp: PackedUserOperation): string {
     const abiCoder = new ethers.AbiCoder();
     return abiCoder.encode(
         [
-            'address', 'uint256', 'bytes32', 'bytes32',
-            'bytes32', 'uint256', 'bytes32', 'bytes32'
+            'bytes32',
+            'address', 'uint256',
+            'bytes32', 'bytes32',
+            'bytes32', 'uint256', 'bytes32',
+            'bytes32'
         ],
         [
-            packedOp.sender,
-            packedOp.nonce,
-            keccak256(packedOp.initCode),
-            keccak256(packedOp.callData),
-            packedOp.accountGasLimits,
-            packedOp.preVerificationGas,
-            packedOp.gasFees,
+            keccak256(ethers.toUtf8Bytes('PackedUserOperation(address sender,uint256 nonce,bytes initCode,bytes callData,bytes32 accountGasLimits,uint256 preVerificationGas,bytes32 gasFees,bytes paymasterAndData)')),
+            packedOp.sender, packedOp.nonce,
+            keccak256(packedOp.initCode), keccak256(packedOp.callData),
+            packedOp.accountGasLimits, packedOp.preVerificationGas, packedOp.gasFees,
             keccak256(packedOp.paymasterAndData)
         ]
     );
@@ -47,8 +47,17 @@ export function getUserOpHash(op: UserOperation | PackedUserOperation, entryPoin
         packedOp = op as PackedUserOperation;
     }
     const userOpHash = keccak256(packUserOp(packedOp));
-    const enc = new ethers.AbiCoder().encode(
-        ['bytes32', 'address', 'uint256'],
-        [userOpHash, entryPoint, chainId])
-    return keccak256(enc)
+    const hashedName = keccak256(ethers.toUtf8Bytes("ERC4337"));
+    const hashedVersion = keccak256(ethers.toUtf8Bytes("1"));
+    const typeHash = keccak256(ethers.toUtf8Bytes("EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)"));
+
+    const abiCoder = ethers.AbiCoder.defaultAbiCoder();
+    const types = ["bytes32", "bytes32", "bytes32", "uint256", "address"];
+    const values = [typeHash, hashedName, hashedVersion, chainId, entryPoint];
+    const domainSeparator = ethers.keccak256(abiCoder.encode(types, values));
+
+    const typedData = ethers.solidityPacked(["bytes", "bytes32", "bytes32"], ["0x1901", domainSeparator, userOpHash]);
+    const typedDataHash = ethers.keccak256(typedData);
+
+    return typedDataHash;
 }
